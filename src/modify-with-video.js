@@ -20,7 +20,7 @@
   - The bugs you found (what's wrong and why)
   - The fixes you implemented
 
-  ADD YOUR LOOM LINK HERE: __________
+  ADD YOUR LOOM LINK HERE: https://www.loom.com/share/7d0e7942d3af407b95c2da4765e3d5f9?sid=f7d87c68-f13c-404d-9052-3c66ce228ebe
 */
 
 const players = [
@@ -31,8 +31,8 @@ const players = [
 ];
 
 const increaseScore = (name) => {
-  for (let i = 0; i <= players.length; i++) {
-    if (players[i].name = name) {
+  for (let i = 0; i <= players.length; i++) { // The bug here is that they use the Smaller than operator when its supposed to be the Smaller than or equal too (<=)
+    if (players[i].name === name) {// using the assignment (=) operator while they were supposed to use the "strict equality operator" (===) operator to it doesnt 
       players[i].score += 1;
     }
   }
@@ -54,7 +54,7 @@ const resetAllScores = () => {
 }
 
 const resetSingleScore = (player) => {
-  score = 0;
+  players.score = 0;// The problem is that score is not a defined variable in this code, the solution would be to write the correct variable which is player.score which would then cause the scores to reset using the resetSingleScore function.
 }
 
 const getTopScorer = () => {
