@@ -58,21 +58,48 @@ const shoutEveryLetterForLoop = (str) => {
 
 const letterCaseCounts = (str) => {
   // Your code here
-}
+  const count = {
+    lowercase: 0,
+    uppercase: 0,
+    neither: 0
+  };
+
+  for (let i = 0; i < str.length; i++) {
+    const character = str[i];
+
+    if (character >= 'a' && character <= 'z') {
+      counts.lowercase++;
+    } else if (character >= 'A' && character <= 'Z') {
+      counts.uppercase++;
+    } else {
+      counts.neither++;
+    }
+  }
+
+  return count;
+};
+
 // ============================================
 // Question 5: getNamesOfGreedyGnomes
 // ============================================
 
 const getNamesOfGreedyGnomes = (gnomes) => {
   // Your code here
-  // const gnomes = { lowercase, 0: uppercase, 0: neither, 0};
+  const greedyNames = [];
 
-  // for (let i = 0; i < gnomes.length; i++)
-  //   const count = gnomes[i];
+  for (let i = 0; i < gnomes.length; i++) {
+    const gnome = gnomes[i];
 
+    if (gnome.stolenDecorations.length > 1) {
+      greedyNames.push(gnome.name);
+    }
+  }
 
+  return greedyNames;
 };
+console.log(getNamesOfGreedyGnomes(gnomes)); // Returns ['Garbeldel', 'Jorbles']
 
+console.log(getNamesOfGreedyGnomes([])); // Returns []
 // ============================================
 // Exports
 // ============================================
